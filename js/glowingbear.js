@@ -6,6 +6,9 @@ var weechat = angular.module('weechat', ['ngRoute', 'localStorage', 'weechatMode
     weechat.compileProvider = $compileProvider;
 }]);
 weechat.config(['$compileProvider', function ($compileProvider) {
+	var allowed = /^\s*(https?|ftp|mailto|(web\+)?fs):/;
+	$compileProvider.aHrefSanitizationWhitelist(allowed);
+    $compileProvider.imgSrcSanitizationWhitelist(allowed);
     // hack to determine whether we're executing the tests
     if (typeof(it) === "undefined" && typeof(describe) === "undefined") {
         $compileProvider.debugInfoEnabled(false);
