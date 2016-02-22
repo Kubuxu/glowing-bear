@@ -650,10 +650,6 @@ angular.module('ngSanitize').filter('linky', ['$sanitize', function($sanitize) {
       raw = raw.substring(i + match[0].length);
     }
     addText(raw);
-	console.log("BEFORE");
-	console.log(html.join(''));
-	console.log("AFTER");
-	console.log($sanitize(html.join('')));
     return $sanitize(html.join(''));
 
     function addText(text) {
